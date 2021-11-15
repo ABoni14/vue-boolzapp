@@ -82,6 +82,9 @@ const app = new Vue({
           },
         ] 
       },
-    ]
+    ],
+
+    counter: 0,
+
   }
 })

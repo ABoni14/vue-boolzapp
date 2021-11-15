@@ -206,7 +206,7 @@ body{
 
 .message-user, .message-contact{
   position: relative;
-  width: 500px;
+  width: 300px;
 }
 
 .message-contact{
@@ -215,6 +215,10 @@ body{
 
 .message-user{
   float: right;
+}
+
+.active{
+  background-color: #eaebeb;
 }
 
 

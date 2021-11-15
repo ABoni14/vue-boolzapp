@@ -55,7 +55,8 @@
         <!-- CONTACT-USER -->
         <div class="contact-user">
           <div class="contact-box" 
-          v-for="(contact, index) in contacts">
+          v-for="(contact, index) in contacts"
+          :class="{'active' : counter === index}">
             <div class="left-contact-box">
               <img :src="contact.img" alt="">
               <div class="contact-box-text">
