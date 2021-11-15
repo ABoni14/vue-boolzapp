@@ -60,11 +60,11 @@
               <img :src="contact.img" alt="">
               <div class="contact-box-text">
                 <h3>{{contact.name}}</h3>
-                <p>Prova messaggio</p>
+                <p>{{contact.messages[contact.messages.length - 1].text.slice(0, 15)}}...</p>
               </div>
             </div>
             <div class="right-contact-box">
-              <p>10/01/2020 16:15:22</p>
+              <p>{{contact.messages[contact.messages.length - 1].data}}</p>
             </div>
           </div>
         </div>
