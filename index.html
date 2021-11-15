@@ -15,8 +15,97 @@
   <title>Boolzapp</title>
 </head>
 <body>
-  
 
+  <div class="container">
+    <div id="app">
+
+      <!-- LEFT BOX -->
+      <div class="box-left">
+        <div class="top">
+          <div class="user-contain">
+            <img src="img/avatar_io.jpg" alt="">
+            <h3>Nome Utente</h3>
+          </div>
+          <div class="icon-contain">
+            <i class="fas fa-circle-notch"></i>
+            <i class="fas fa-comment-alt"></i>
+            <i class="fas fa-ellipsis-v"></i>
+          </div>
+        </div>
+
+        <!-- SEZIONE NOTIFICHE -->
+        <div class="notifiche-user">
+          <i class="fas fa-bell-slash"></i>
+          <div class="notifiche-description">
+            <h4>Ricevi notifiche di nuovi messaggi</h4>
+            <p>Attiva notifiche desktop</p>
+          </div>
+        </div>
+        <!-- //SEZIONE NOTIFICHE -->
+
+        <!-- INPUT USER -->
+        <div class="input-user">
+          <input type="text" placeholder="Cerca o inizia una nuova chat">
+        </div>
+        <!-- //INPUT USER -->
+
+        <!-- CONTACT-USER -->
+        <div class="contact-user">
+          <div class="contact-box" 
+          v-for="(contact, index) in contacts">
+            <div class="left-contact-box">
+              <img :src="contact.img" alt="">
+              <div class="contact-box-text">
+                <h3>{{contact.name}}</h3>
+                <p>Prova messaggio</p>
+              </div>
+            </div>
+            <div class="right-contact-box">
+              <p>10/01/2020 16:15:22</p>
+            </div>
+          </div>
+        </div>
+        <!-- //CONTACT-USER -->
+
+      </div>
+      <!-- //LEFT BOX -->
+
+      <!-- RIGHT BOX -->
+      <div class="box-right">
+        <div class="top">
+          <div class="contact-contain">
+            <img src="img/avatar_1.jpg" alt="">
+            <div class="description-contact">
+              <h3>Michele</h3>
+              <p>Ultimo accesso oggi alle 10/01/202 16:15:22</p>
+            </div>  
+          </div>
+
+          <div class="icon-contact">
+            <i class="fas fa-search"></i>
+            <i class="fas fa-paperclip"></i>
+            <i class="fas fa-ellipsis-v"></i>
+          </div>
+        </div>
+
+        <div class="main-messagge">
+          <p class="message-sent-user">Hai portato a spasso il cane?</p>
+          <p class="message-sent-user">Ricordati di dargli da mangiare</p>
+          <p class="message-sent-contact">Tutto fatto!</p>
+        </div>
+
+        <div class="sending-messagge">
+          <i class="far fa-smile"></i>
+          <input type="text" placeholder="Scrivi un messaggio">
+          <i class="fas fa-microphone"></i>
+        </div>
+      </div>
+      <!-- //RIGHT BOX -->
+
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
   <script src="js/script.js"></script>
 </body>
 </html>
