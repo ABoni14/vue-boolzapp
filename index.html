@@ -17,10 +17,12 @@
 <body>
 
   <div class="container">
-    <div id="app">
+    <div id="app" class="clearfix">
 
       <!-- LEFT BOX -->
       <div class="box-left">
+
+        <!-- TOP USER -->
         <div class="top">
           <div class="user-contain">
             <img src="img/avatar_io.jpg" alt="">
@@ -32,6 +34,7 @@
             <i class="fas fa-ellipsis-v"></i>
           </div>
         </div>
+        <!-- //TOP USER -->
 
         <!-- SEZIONE NOTIFICHE -->
         <div class="notifiche-user">
@@ -72,6 +75,8 @@
 
       <!-- RIGHT BOX -->
       <div class="box-right">
+
+        <!-- TOP CONTACT -->
         <div class="top">
           <div class="contact-contain">
             <img src="img/avatar_1.jpg" alt="">
@@ -87,18 +92,40 @@
             <i class="fas fa-ellipsis-v"></i>
           </div>
         </div>
+        <!-- //TOP CONTACT -->
 
-        <div class="main-messagge">
-          <p class="message-sent-user">Hai portato a spasso il cane?</p>
-          <p class="message-sent-user">Ricordati di dargli da mangiare</p>
-          <p class="message-sent-contact">Tutto fatto!</p>
+        <!-- BOX CHAT MESSAGES -->
+        <div class="main-messagge clearfix">
+          <div class="row-message">
+            <div class="message-user">
+              <p class="message-sent-user">Hai portato a spasso il cane?</p>
+              <span>10/01/2020 15:30:55</span>
+            </div>   
+          </div>
+          <div class="row-message">
+            <div class="message-user">
+              <p class="message-sent-user">Ricordati di dargli da mangiare</p>
+              <span>10/01/2020 15:50:55</span>
+            </div>  
+          </div>
+          <div class="row-message">
+            <div class="message-contact">
+              <p class="message-sent-contact">Tutto fatto!</p>
+              <span>10/01/2020 16:15:55</span>
+            </div>    
+          </div>   
         </div>
+        <!-- //BOX CHAT MESSAGES -->
 
+
+        
+        <!-- SEND MESSAGES -->
         <div class="sending-messagge">
           <i class="far fa-smile"></i>
           <input type="text" placeholder="Scrivi un messaggio">
           <i class="fas fa-microphone"></i>
         </div>
+        <!-- //SEND MESSAGES -->
       </div>
       <!-- //RIGHT BOX -->
 

@@ -5,6 +5,16 @@
   box-sizing: border-box;
 }
 
+body{
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.clearfix::after{
+  content: '';
+  display: table;
+  clear: both;
+}
+
 .container{
   height: 100vh;
   display: flex;
@@ -17,6 +27,7 @@
   width: 90%;
   min-width: 800px;
   height: 90vh;
+  min-height: 700px;
 }
 
 .box-left{
@@ -167,23 +178,44 @@
   flex-direction: column;
 }
 
+.row-message{
+  width: 100%;
+}
+
+.row-message span{
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  font-size: 13px;
+  color: grey;
+}
+
 .message-sent-user, .message-sent-contact{
   border-radius: 10px;
   margin-bottom: 10px;
   padding: 15px;
-  display: block;
 }
 
 .message-sent-user{
-  float: right;
   background-color: #d6fbbb;
 }
 
 .message-sent-contact{
-  float: left;
   background-color: white;
 }
 
+.message-user, .message-contact{
+  position: relative;
+  width: 500px;
+}
+
+.message-contact{
+  float: left;
+}
+
+.message-user{
+  float: right;
+}
 
 
 
