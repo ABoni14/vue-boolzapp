@@ -4,6 +4,12 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Acme&family=Lato&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Acme&family=Lato:wght@400;700&display=swap" rel="stylesheet">
   <link
   rel="stylesheet"
   href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css"
@@ -21,7 +27,6 @@
 
       <!-- LEFT BOX -->
       <div class="box-left">
-
         <!-- TOP USER -->
         <div class="top">
           <div class="user-contain">
@@ -48,6 +53,7 @@
 
         <!-- INPUT USER -->
         <div class="input-user">
+          <i class="fas fa-search search"></i>
           <input type="text" placeholder="Cerca o inizia una nuova chat">
         </div>
         <!-- //INPUT USER -->
@@ -56,7 +62,8 @@
         <div class="contact-user">
           <div class="contact-box" 
           v-for="(contact, index) in contacts"
-          :class="{'active' : counter === index}">
+          :class="{'active' : counter === index}"
+          @click="counter = index">
             <div class="left-contact-box">
               <img :src="contact.img" alt="">
               <div class="contact-box-text">
@@ -70,20 +77,18 @@
           </div>
         </div>
         <!-- //CONTACT-USER -->
-
       </div>
       <!-- //LEFT BOX -->
 
       <!-- RIGHT BOX -->
       <div class="box-right">
-
         <!-- TOP CONTACT -->
         <div class="top">
           <div class="contact-contain">
-            <img src="img/avatar_1.jpg" alt="">
+            <img :src="contacts[counter].img" alt="">
             <div class="description-contact">
-              <h3>Michele</h3>
-              <p>Ultimo accesso oggi alle 10/01/202 16:15:22</p>
+              <h3>{{contacts[counter].name}}</h3>
+              <p>Ultimo accesso oggi alle {{contacts[counter].messages[contacts[counter].messages.length - 1].data}}</p>
             </div>  
           </div>
 
@@ -97,39 +102,26 @@
 
         <!-- BOX CHAT MESSAGES -->
         <div class="main-messagge clearfix">
-          <div class="row-message">
-            <div class="message-user">
-              <p class="message-sent-user">Hai portato a spasso il cane?</p>
-              <span>10/01/2020 15:30:55</span>
+          <div class="row-message"
+          v-for="message in contacts[counter].messages"
+          >
+            <div :class="{'message-user': message.stato === 'inviato', 'message-contact': message.stato === 'ricevuto'}">
+              <p>{{message.text}}</p>
+              <span>{{message.data}}</span>
             </div>   
-          </div>
-          <div class="row-message">
-            <div class="message-user">
-              <p class="message-sent-user">Ricordati di dargli da mangiare</p>
-              <span>10/01/2020 15:50:55</span>
-            </div>  
-          </div>
-          <div class="row-message">
-            <div class="message-contact">
-              <p class="message-sent-contact">Tutto fatto!</p>
-              <span>10/01/2020 16:15:55</span>
-            </div>    
-          </div>   
+          </div>  
         </div>
         <!-- //BOX CHAT MESSAGES -->
 
-
-        
         <!-- SEND MESSAGES -->
         <div class="sending-messagge">
-          <i class="far fa-smile"></i>
+          <i class="far fa-smile smile"></i>
           <input type="text" placeholder="Scrivi un messaggio">
-          <i class="fas fa-microphone"></i>
+          <i class="fas fa-microphone rec"></i>
         </div>
         <!-- //SEND MESSAGES -->
       </div>
       <!-- //RIGHT BOX -->
-
     </div>
   </div>
   

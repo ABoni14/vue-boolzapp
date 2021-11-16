@@ -6,7 +6,8 @@
 }
 
 body{
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-family: 'Acme', sans-serif;
+  font-family: 'Lato', sans-serif;
 }
 
 .clearfix::after{
@@ -25,7 +26,7 @@ body{
 
 #app{
   width: 90%;
-  min-width: 800px;
+  min-width: 1200px;
   height: 90vh;
   min-height: 700px;
 }
@@ -58,13 +59,13 @@ body{
 }
 
 .user-contain img, .contact-contain img{
-  width: 70px;
+  width: 60px;
   border-radius: 50%;
   margin-right: 10px;
 }
 
 .user-contain h3{
-  font-weight: bold;
+  font-weight: 700;
 }
 
 .icon-contain i, .icon-contact i{
@@ -127,20 +128,23 @@ body{
 }
 
 .input-user{
+  height: 50px;
   padding: 5px;
 }
 
 .input-user input{
-  width: 100%;
+  width: 95%;
   line-height: 40px;
   border-radius: 5px;
   border: 1px solid #e9eaea;
-  padding-left: 30px;
+  padding-left: 15px;
 }
 
 .contact-user{
+  height: calc(100% - 50px - 80px - 100px);
   display: flex;
   flex-direction: column;
+  background-color: white;
 }
 
 .left-contact-box{
@@ -153,6 +157,7 @@ body{
   width: 98%;
   background-color: white;
   padding: 15px 25px;
+  cursor: pointer;
 }
 
 .contact-box img{
@@ -184,41 +189,56 @@ body{
 
 .row-message span{
   position: absolute;
-  right: 10px;
-  bottom: 10px;
-  font-size: 13px;
+  right: 5px;
+  bottom: 5px;
+  font-size: 12px;
   color: grey;
 }
 
-.message-sent-user, .message-sent-contact{
+.message-user, .message-contact{
   border-radius: 10px;
   margin-bottom: 10px;
   padding: 15px;
-}
-
-.message-sent-user{
-  background-color: #d6fbbb;
-}
-
-.message-sent-contact{
-  background-color: white;
-}
-
-.message-user, .message-contact{
   position: relative;
-  width: 300px;
+  width: 350px;
 }
 
 .message-contact{
+  background-color: white;
   float: left;
 }
 
 .message-user{
   float: right;
+  background-color: #d6fbbb;
 }
 
 .active{
-  background-color: #eaebeb;
+  background-color: #eaebeb !important;
+}
+
+.contact-box:hover{
+  background-color: rgb(247, 247, 247);
+}
+
+.row-message p{
+  padding: 10px 5px;
+}
+
+.rec, .smile{
+  transition: all 0.5s;
+}
+
+.rec:hover{
+  color: red;
+}
+
+.smile:hover{
+  color: rgb(197, 197, 24);
+}
+
+.search{
+  padding: 5px;
 }
 
 
