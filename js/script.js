@@ -72,12 +72,12 @@ const app = new Vue({
         [
           {
             data: "28/04/2020 21:56:55",
-            text: "Oggi puoi uscire? Andiamo al cinema?",
+            text: "Grazie per la bella serata, buonanotte Luisa",
             stato: "inviato"
           },
           {
             data: "28/04/2020 22:15:09",
-            text: "Mi piacerebbe ma devo andare dal dottore!",
+            text: "Grazie a te tesoro, notte",
             stato: "ricevuto"
           },
         ] 
@@ -115,7 +115,7 @@ const app = new Vue({
       let newData = new Date();
       let newDataMessage = 
       `
-        ${newData.getDate()}/${newData.getMonth()}7${newData.getFullYear()}
+        ${newData.getDate()}/${newData.getMonth()}/${newData.getFullYear()}
         ${newData.getHours()}:${newData.getMinutes()}:${newData.getSeconds()}
       `;
 

@@ -17,6 +17,7 @@ body{
 }
 
 .container{
+  width: 100vw;
   height: 100vh;
   display: flex;
   justify-content: center;
@@ -133,7 +134,7 @@ body{
 }
 
 .input-user input{
-  width: 95%;
+  width: 92%;
   line-height: 40px;
   border-radius: 5px;
   border: 1px solid #e9eaea;
