@@ -108,7 +108,7 @@ const app = new Vue({
           stato: "ricevuto",
         }
       contact.messages.push(messageContactAuto);
-      }, 2000);
+      }, 1000);
     }},
 
     updateDate(){
