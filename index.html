@@ -116,7 +116,11 @@
         <!-- SEND MESSAGES -->
         <div class="sending-messagge">
           <i class="far fa-smile smile"></i>
-          <input type="text" placeholder="Scrivi un messaggio">
+          <input
+          v-model="newMsg"
+          @keyup.enter="newMessage(contacts[counter])"
+          type="text" 
+          placeholder="Scrivi un messaggio">
           <i class="fas fa-microphone rec"></i>
         </div>
         <!-- //SEND MESSAGES -->

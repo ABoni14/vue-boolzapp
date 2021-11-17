@@ -85,6 +85,41 @@ const app = new Vue({
     ],
 
     counter: 0,
+    newMsg: "",
+  },
 
+  methods: {
+    newMessage(contact){
+      let sendMessage = 
+        {
+          data: this.updateDate(),
+          text: this.newMsg,
+          stato: "inviato",
+        }
+
+      if(this.newMsg.trim() != ""){
+        contact.messages.push(sendMessage);
+        this.newMsg= "";
+        setTimeout(() => {
+        let messageContactAuto = 
+        {
+          data: this.updateDate(),
+          text: "Ok",
+          stato: "ricevuto",
+        }
+      contact.messages.push(messageContactAuto);
+      }, 2000);
+    }},
+
+    updateDate(){
+      let newData = new Date();
+      let newDataMessage = 
+      `
+        ${newData.getDate()}/${newData.getMonth()}7${newData.getFullYear()}
+        ${newData.getHours()}:${newData.getMinutes()}:${newData.getSeconds()}
+      `;
+
+      return newDataMessage;
+    }
   }
 })
