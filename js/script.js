@@ -1,3 +1,6 @@
+// Richiamo la libreria dayjs
+dayjs.extend(window.dayjs_plugin_customParseFormat);
+
 const app = new Vue({
   el: "#app",
 
@@ -86,24 +89,30 @@ const app = new Vue({
 
     counter: 0,
     newMsg: "",
+    searchContact: "",
+    previewChat: "",
   },
 
   methods: {
+    // Creo un nuovo oggetto, pusho all'interno dell'array di oggetti "contacts" e restituisco una risposta dopo 1s
     newMessage(contact){
       let sendMessage = 
         {
-          data: this.updateDate(),
+          data: dayjs().format("DD/MM/YYYY HH:mm:ss"),
           text: this.newMsg,
           stato: "inviato",
         }
 
+      // se il messaggio pushato è diverso da "stringa vuota", pusha il messaggio e resettalo
       if(this.newMsg.trim() != ""){
         contact.messages.push(sendMessage);
         this.newMsg= "";
+
+        // pusho una risposta automatica dopo 1s
         setTimeout(() => {
         let messageContactAuto = 
         {
-          data: this.updateDate(),
+          data: dayjs().format("DD/MM/YYYY HH:mm:ss"),
           text: "Ok",
           stato: "ricevuto",
         }
@@ -111,15 +120,20 @@ const app = new Vue({
       }, 1000);
     }},
 
-    updateDate(){
-      let newData = new Date();
-      let newDataMessage = 
-      `
-        ${newData.getDate()}/${newData.getMonth()}/${newData.getFullYear()}
-        ${newData.getHours()}:${newData.getMinutes()}:${newData.getSeconds()}
-      `;
+    // Richiamo l'ultimo messaggio dell'indice 
+    previewChatContact(index){
+      let previewChat ='';
+      let chatContact = this.contacts[index].messages[this.contacts[index].messages.length - 1].text;
+      
+      // Se la lunghezza è inferiore o pari a 12 pusho l'intero messaggio
+      if (chatContact.length <= 12) {
+        previewChat = chatContact;
 
-      return newDataMessage;
-    }
+      // Se più lunga invece, mostro solo le lettere da indice 0 a indice 12, il resto le nascondo e aggiungo "..." 
+      } else {
+        previewChat = chatContact.substring(0,12) + "...";
+      }
+      return previewChat;
+    },
   }
 })

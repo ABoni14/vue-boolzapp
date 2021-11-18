@@ -53,8 +53,12 @@
 
         <!-- INPUT USER -->
         <div class="input-user">
-          <i class="fas fa-search search"></i>
-          <input type="text" placeholder="Cerca o inizia una nuova chat">
+          <div class="input-contain">
+            <i class="fas fa-search search"></i>
+            <input 
+            v-model="searchContact"
+            type="text" placeholder="Cerca o inizia una nuova chat">
+          </div> 
         </div>
         <!-- //INPUT USER -->
 
@@ -63,12 +67,13 @@
           <div class="contact-box" 
           v-for="(contact, index) in contacts"
           :class="{'active' : counter === index}"
-          @click="counter = index">
+          @click="counter = index"
+          v-if='searchContact === "" || contact.name.toUpperCase().includes(searchContact.toUpperCase())'>
             <div class="left-contact-box">
-              <img :src="contact.img" alt="">
+              <img :src="contact.img" alt="contact.name">
               <div class="contact-box-text">
                 <h3>{{contact.name}}</h3>
-                <p>{{contact.messages[contact.messages.length - 1].text.slice(0, 15)}}...</p>
+                <p>{{previewChat = previewChatContact(index)}}</p>
               </div>
             </div>
             <div class="right-contact-box">
@@ -105,7 +110,8 @@
           <div class="row-message"
           v-for="message in contacts[counter].messages"
           >
-            <div :class="{'message-user': message.stato === 'inviato', 'message-contact': message.stato === 'ricevuto'}">
+            <div 
+            :class="{'message-user': message.stato === 'inviato', 'message-contact': message.stato === 'ricevuto'}">
               <p>{{message.text}}</p>
               <span>{{message.data}}</span>
             </div>   
@@ -130,6 +136,8 @@
   </div>
   
   <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/dayjs@1.10.7/dayjs.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/dayjs@1.10.7/plugin/customParseFormat.js"></script>
   <script src="js/script.js"></script>
 </body>
 </html>
